@@ -1,6 +1,7 @@
 let i1=0;
 let i2=0;
-let $array = [];
+let $array1 = [];
+let $array2 = [];
 
 function search(){
 
@@ -8,7 +9,7 @@ function search(){
 
     let $numero= document.getElementById("codigo1").value;
 
-    $array.push($numero)
+    $array1.push($numero)
 
     if (i1 === 3){
 
@@ -16,7 +17,7 @@ function search(){
     document.getElementById("enviar1").disabled = true;
 
     }
-    console.log($array)
+    console.log($array1)
 }
 
 
@@ -26,26 +27,29 @@ function search2(){
 
     let $numero= document.getElementById("codigo2").value;
     
-    $array.push($numero)
+    $array2.push($numero)
 
     if (i2 === 3){
 
         document.getElementById("codigo2").disabled = true;
-        document.getElementById("enviar2").disabeld = true;
+        document.getElementById("enviar2").disabled = true;
     }
 
     if( i1 ===3 && i2 === 3){
         buscarImagenes();
     }
-    console.log($array)
+    console.log($array2)
 }
 
 
 function buscarImagenes(){
 
-    personajesID= $array.join(",");
+    let personajesid1= $array1.join(",");
+    let personajesid2= $array2.join(",");
 
-    fetch(`https://rickandmortyapi.com/api/character/${personajesID}`)
+    let muestra = personajesid1 + "," + personajesid2; // Concatenamos los IDs separados por comas
+
+    fetch(`https://rickandmortyapi.com/api/character/${muestra}`)
     .then(Response => Response.json())
     .then(data =>{
 
@@ -64,4 +68,3 @@ function buscarImagenes(){
 }
 
 
-    
