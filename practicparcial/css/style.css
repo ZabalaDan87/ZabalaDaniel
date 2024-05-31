@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 50%;
+}
+
+.right{
+    width: 170%;
+}
+
+.divider {
+    width: 20%;
+    border-left: 2px solid rgba(202, 18, 18, 0.863);
+    height: 50vh;
+}
+
+#contador3{
+    margin-left: 200px;
+}

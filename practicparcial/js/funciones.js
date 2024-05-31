@@ -1,60 +1,60 @@
-function busca(){
-    i=0
-    
-    fetch('./personas.json')
-    .then(response => response.json())
+
+function searchUser(){
+    fetch(`personas.json`)
+    .then(response => response.json()) 
     .then(data => {
+        console.log(data["results"]); 
+
+        let array = []; 
+        let array2 = []; 
+        let mujeres = 0; 
+        let varones = 0; 
+
+        data["results"].forEach(user => {
+            if (user.gender === "female") {
+                array.push(user.name.first + " " + user.name.last);
+                mujeres += 1;
+            }
+            else {
+                array2.push(user.name.first + " " + user.name.last);
+                varones += 1;   
+            }
+        });
+
+        // Obtiene los contenedores para las mujeres y los hombres
+        const mujeresDiv = document.getElementById("mujeres");
+        const hombresDiv = document.getElementById("hombres");
+
         
-    console.log(data)
+        for (let i = 0; i < array.length; i++) {
+            const nombre = array[i];
 
+            let p = document.createElement("p"); // Crea un elemento de párrafo
+            p.textContent = nombre; // Establece el texto del párrafo
+            p.style.color = "#FF0000"; 
+            mujeresDiv.appendChild(p); // Añade el párrafo al contenedor de mujeres
 
-     let array=[];
-     let array2=[];
-     let female=0;
-     let male=0;
-    
+           
+            let contadorMujeres = document.getElementById("contador");
+            contadorMujeres.innerText = `Cantidad de mujeres: ` + mujeres; 
+        } 
 
-}
-    )
-    }
-    
-
-    data["results"].array.forEach(user => {
-
-        if(user.gender==="male" ){
-            array.push  
-            console.log(user.name.first+""+user.name.last)
-            male+=male+1
         
+        for (let i = 0; i < array2.length; i++) {
+            const nombre = array2[i];
+
+            let p = document.createElement("p"); // Crea un elemento de párrafo
+            p.textContent = nombre; // Establece el texto del párrafo
+            p.style.color = "#0000FF"; 
+            hombresDiv.appendChild(p); // Añade el párrafo al contenedor de hombres
+
             
-        
-         }else{
+            let contadorVarones = document.getElementById("contador2");
+            contadorVarones.innerText = `Cantidad de hombres: ` + varones; 
+        } 
 
-            array2.push(user.name.first+""+user.name.last)
-            female+=female+1
-         }
-        
-     });
-
-     for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-
-        let p=document.createElement("p");
-        p.textContent=element;
-        document.body.appendChild(p);
-        let conthombre=document.getElementById("cont");
-        conthombre.innerText=`Cantidad de Hombres`+ male
-        
-     }
-
-    for (let i = 0; i < array.length; i++) {
-        const element = array2[i];
-
-
-        let p=document.createElement("p");
-        p.textContent=element;
-        document.body.appendChild(p);
-        let contmujer=document.getElementById("cont2");
-        contmujer.innerText=`Cantidad de Mujeres`+ female
-        
-    }
+        let personas = varones + mujeres;
+        let contadorPersonas = document.getElementById("contador3");
+        contadorPersonas.innerText = `Cantidad de personas: ` + personas; 
+    })
+}
