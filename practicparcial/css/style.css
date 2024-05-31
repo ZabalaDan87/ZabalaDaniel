@@ -21,13 +21,13 @@
     margin-left: 200px;
 }
 
-label,
-input[type='radio'] {
-  display: block;
-  margin-top: 1em;
+p,
+label {
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
 }
 
-input:checked {
-  border: none;
-  outline: 2px solid rgb(58, 24, 42);
+input {
+  margin: 0.4rem;
 }
