@@ -1,0 +1,13 @@
+dividir pantalla en dos 
+
+			buton: buscar y ordenar
+
+Female(Mujeres)							male(Hombres)
+
+nombre y apellido 					
+
+
+
+
+
+contador  que diga cuantos hombres y mujeres hay
