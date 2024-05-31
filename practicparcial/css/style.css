@@ -13,10 +13,21 @@
 
 .divider {
     width: 20%;
-    border-left: 2px solid rgba(202, 18, 18, 0.863);
+    border-left: 2px solid black;
     height: 50vh;
 }
 
 #contador3{
     margin-left: 200px;
+}
+
+label,
+input[type='radio'] {
+  display: block;
+  margin-top: 1em;
+}
+
+input:checked {
+  border: none;
+  outline: 2px solid rgb(58, 24, 42);
 }
